@@ -51,9 +51,15 @@
     <!-- S Dropdown -->
     <transition name="slide-up" @after-leave="doDestory">
       <div
-        class="at-select__dropdown at-select__dropdown--top"
+        class="at-select__dropdown"
+        :class="[
+          placement
+            ? `at-select__dropdown--${placement}`
+            : 'at-select__dropdown--top'
+        ]"
         v-show="visible"
         ref="popover"
+        style="top: -9.81rem; left: 0rem;"
       >
         <ul v-show="notFound" class="at-select__not-found">
           <li>{{ localeNotFoundText }}</li>
